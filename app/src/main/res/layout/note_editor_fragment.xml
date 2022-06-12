@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_small"
+            tools:context=".note.NoteEditorFragment">
+
+            <EditText
+                android:id="@+id/etNoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="title"
+                android:ems="10"
+                android:hint="@string/note_title"
+                android:inputType="textPersonName"
+                android:text="@={noteEditorViewModel.title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textSize="@dimen/editor_title_text_size" />
+
+            <EditText
+                android:id="@+id/etNoteContents"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:lines="20"
+                android:gravity="start|top"
+                android:hint="@string/note_contents"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:text="@={noteEditorViewModel.content}"
+                android:textSize="@dimen/editor_base_text_size" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <data>
+
+        <variable
+            name="noteEditorViewModel"
+            type="com.tilikki.app.notepadia.note.NoteEditorViewModel" />
+    </data>
+</layout>
